@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,10 +29,10 @@ public class LoginFragment extends Fragment {
     private EditText text_login_username;
     private EditText text_login_password;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         View rootView = inflater.inflate(R.layout.login_layout, container, false);
         submitButton = (Button) rootView.findViewById(R.id.login_btn_submit);
         closeButton = (Button) rootView.findViewById(R.id.login_btn_close);
@@ -75,6 +76,8 @@ public class LoginFragment extends Fragment {
         if (null != userEntity) {
             int status = userEntity.getUserStatus();
             Log.d(TAG, "登录状态为:" + status);
+            //模拟数据，暂设置为 总是成功
+            status = MessageConstant.USER_LOGIN_STATUS_SUCCESS;
 
             switch (status) {
                 case MessageConstant.NET_WORK_ERROR:
@@ -90,6 +93,10 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getActivity(), "登录成功，开始跳转页面", Toast.LENGTH_LONG).show();
                     //判断权限,根据权限生成菜单结构
                     int role_id = userEntity.getRole_id();
+                    getActivity().getFragmentManager().beginTransaction().
+                            replace(R.id.main_layout,new MenuFragment())
+                            .addToBackStack("menu_home")
+                            .commit();
                     break;
                 default:
                     Toast.makeText(getActivity(), "未知异常", Toast.LENGTH_LONG).show();

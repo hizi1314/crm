@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="com.tw.crm.MainActivity">
-
-   <fragment
-       android:id="@+id/layout_fragment"
-       android:name="com.tw.crm.fragment.LoginFragment"
+   <LinearLayout
+       android:id="@+id/main_layout"
+       android:orientation="vertical"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"/>
+       android:layout_height="wrap_content"/>
 </LinearLayout>
