@@ -20,6 +20,8 @@ public class ProductStorageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
+        //getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+
         View rootView = inflater.inflate(R.layout.product_storage_layout,container,false);
 
         return rootView;

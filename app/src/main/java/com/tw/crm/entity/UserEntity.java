@@ -10,11 +10,11 @@ public class UserEntity {
 
     private String password;
 
-    private int role_id;
+    private String role_id;
 
     private int userStatus;
 
-    public UserEntity(String username, String password, int role_id, int status) {
+    public UserEntity(String username, String password, String role_id, int status) {
         this.username = username;
         this.password = password;
         this.role_id = role_id;
@@ -37,19 +37,19 @@ public class UserEntity {
         this.password = password;
     }
 
-    public int getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
-    }
-
     public int getUserStatus() {
         return userStatus;
     }
 
     public void setUserStatus(int userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public String getRole_id() {
+        return role_id;
+    }
+
+    public void setRole_id(String role_id) {
+        this.role_id = role_id;
     }
 }

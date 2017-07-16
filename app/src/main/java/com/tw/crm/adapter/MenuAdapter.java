@@ -1,18 +1,14 @@
 package com.tw.crm.adapter;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
-import com.tw.crm.R;
 import com.tw.crm.entity.MenuItemsEntity;
-import com.tw.crm.fragment.ProductStorageFragment;
+
 import java.util.List;
-import static com.tw.crm.utils.ApiRole.MENU_AGENT_MANAGEMENT;
-import static com.tw.crm.utils.ApiRole.MENU_PRODUCT_STORAGE;
 
 
 /**
@@ -20,14 +16,14 @@ import static com.tw.crm.utils.ApiRole.MENU_PRODUCT_STORAGE;
  */
 
 public class MenuAdapter extends BaseAdapter {
-
     private List<MenuItemsEntity> list;
+    private Context context;
+    private View.OnClickListener onClickListener;
 
-    private Activity activity;
-
-    public MenuAdapter(List<MenuItemsEntity> list,Activity activity) {
+    public MenuAdapter(List<MenuItemsEntity> list, Context context, View.OnClickListener onClickListener) {
         this.list = list;
-        this.activity = activity;
+        this.context = context;
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -47,27 +43,13 @@ public class MenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //暂时用按钮菜单
-        Button button = new Button(activity);
+
         final MenuItemsEntity menuItemsEntity = list.get(position);
+        //暂时用按钮菜单
+        Button button = new Button(context);
         button.setText(menuItemsEntity.getMenu_name());
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //菜单打开选项
-                FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
-                String tag = menuItemsEntity.getTag();
-                if(MENU_PRODUCT_STORAGE.equals(tag)){
-                    //产品入库
-                    transaction.replace(R.id.main_layout,new ProductStorageFragment());
-                }else if(MENU_AGENT_MANAGEMENT.equals(tag)){
-
-                }
-
-                transaction.commit();
-            }
-        });
-
+        button.setTag(menuItemsEntity.getTag());
+        button.setOnClickListener(onClickListener);
         return button;
     }
 }
