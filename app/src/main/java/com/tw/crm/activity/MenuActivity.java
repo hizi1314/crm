@@ -86,11 +86,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Log.d(TAG, "v tag:" + v.getTag());
-
         String tag = String.valueOf(v.getTag());
-
         Intent intent = new Intent();
-
         switch (tag) {
             case ApiRole.MENU_PRODUCT_STORAGE:
                 intent.setClass(this, ProductStorageActivity.class);
