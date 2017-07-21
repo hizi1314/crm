@@ -6,6 +6,10 @@ package com.tw.crm.entity;
 
 public class UserEntity {
 
+
+
+    private String userid ;
+
     private String username;
 
     private String password;
@@ -14,11 +18,28 @@ public class UserEntity {
 
     private int userStatus;
 
-    public UserEntity(String username, String password, String role_id, int status) {
+    public  UserEntity(){
+
+    }
+    public  UserEntity(String userid,String username ){
+        this.userid=userid ;
+        this.username=username;
+    }
+
+    public UserEntity(String username, String password, String role_id, int status,String userid) {
         this.username = username;
         this.password = password;
         this.role_id = role_id;
         this.userStatus = status;
+        this.userid=userid ;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getUsername() {

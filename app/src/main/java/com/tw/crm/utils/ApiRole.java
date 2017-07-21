@@ -8,9 +8,9 @@ public class ApiRole {
 
     public static final String ROLE_ADMIN = "001";
 
-    public static final String ROLE_PROVINCE_PROXY = "002";
+    public static final String ROLE_PROVINCE_PROXY = "100";
 
-
+    public static final String ROLE_JINGXIAO = "101";
     /**
      * 产品入库TAG //管理员
      */
@@ -52,6 +52,58 @@ public class ApiRole {
     public static final String MENU_CONSTRUCTION = "menu_construction";
 
 
+//防伪
+    public static final String MENU_SECURITY = "menu_security";
 
-    public static final String API_LOGIN_URL = "http://120.77.255.8:8080/product/interactive/clientlogin";
+//跟踪
+    public static final String MENU_TRACK = "menu_track";
+
+
+
+
+
+
+    //public static final String API_LOGIN_URL = "http://120.77.255.8:8080/product/interactive/clientlogin";
+    //public static final String API_PACKING = "http://120.77.255.8:8080/product/interactive/packing";
+
+    private  static final String API_IP="http://192.168.0.191:8080";
+//登陆
+    public static final String API_LOGIN_URL = API_IP+"/product/interactive/clientlogin";
+
+    //入库
+    public static final String API_STORAGE = API_IP+"/product/interactive/storage";
+    //装箱
+    public static final String API_PACKING = API_IP+"/product/interactive/packing";
+
+    //发箱
+    public static final String API_SENDAGENT = API_IP+"/product/interactive/sendagent";
+
+    //省代理收箱子
+    public static final String API_RECEIPTCBOXS = API_IP+"/product/interactive/receiptcboxs";
+
+    //发货经销商
+    public static final String API_SENDDISTRIBUTOR = API_IP+"/product/interactive/senddistributor";
+
+    //经销商收货
+    public static final String API_RECEIPTCPRODUCTS = API_IP+"/product/interactive/receiptcproducts";
+
+    //施工
+    public static final String API_CONSTRUCTION = API_IP+"/product/interactive/construction";
+
+//防伪
+        public static final String API_SECURITY = API_IP+"/product/interactive/security";
+//跟踪
+        public static final String API_TRACK= API_IP+"/product/interactive/track";
+
+
+
+    //查询所有省代理数据：interactive/selectAgents
+    public static final String API_SELECTAGENT = API_IP+"/product/interactive/selectAgents";
+
+    //查询省代理下的所有经销商数据：interactive/selectJingxs
+    public static final String API_SELECTJINGXS= API_IP+"/product/interactive/selectJingxs";
+
+    //查询所有 分销和业务
+    public static final String API_SELECTFENXIAOYEWU= API_IP+"/product/interactive/selectFenxiaoAndYewu";
+
 }

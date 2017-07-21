@@ -20,11 +20,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TID:"
+                android:text="箱子条码:"
                 android:textStyle="bold" />
             <!--android:hint="@string/login_password"-->
             <EditText
-                android:id="@+id/sendagent_ifid"
+                android:id="@+id/sendagent_sboxes"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:editable="false"
@@ -56,12 +56,14 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/sendagent_button_submit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:text="提交" />
 
                 <Button
+                    android:id="@+id/sendagent_button_back"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"

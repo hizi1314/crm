@@ -39,7 +39,8 @@ public class OkHttpTool {
                 return response.body().string();
             }
         } catch (IOException e) {
-            throw e;
+            e.printStackTrace();
+           // throw e;
         }
         return null;
     }
@@ -68,6 +69,15 @@ public class OkHttpTool {
         }
         return null;
     }
+    public static void sendOkHttpRequest(String address, okhttp3.Callback callback) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(address).build();
+        client.newCall(request).enqueue(callback);
+    }
+    public static void sendOkHttpRequestBody(String address, RequestBody requestBody, okhttp3.Callback callback) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(address).post(requestBody).build();
 
-
+        client.newCall(request).enqueue(callback);
+    }
 }

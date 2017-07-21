@@ -42,7 +42,7 @@ public class LoginService extends AsyncTask<UserEntity, Void, UserEntity> {
                     .build());
             Log.d(TAG, "user_json: " + user_json);
         } catch (IOException e) {
-            return new UserEntity(null, null, "-1", MessageConstant.NET_WORK_ERROR);
+            return new UserEntity(null, null, "-1", MessageConstant.NET_WORK_ERROR,"-1");
         }
 
         if (!TextUtils.isEmpty(user_json)) {
@@ -50,16 +50,21 @@ public class LoginService extends AsyncTask<UserEntity, Void, UserEntity> {
                 JSONObject jsonObject = new JSONObject(user_json);
                 int status = jsonObject.getInt("status");
                 if (status == MessageConstant.USER_LOGIN_STATUS_FAIL) {
-                    return new UserEntity(null, null, "-1", MessageConstant.USER_LOGIN_STATUS_FAIL);
+                    return new UserEntity(null, null, "-1", MessageConstant.USER_LOGIN_STATUS_FAIL,"-1");
                 } else if (status == MessageConstant.USER_LOGIN_STATUS_SUCCESS) {
-                    return new UserEntity(jsonObject.getString("username"), jsonObject.getString("password"), jsonObject.getString("roleId"), MessageConstant.USER_LOGIN_STATUS_SUCCESS);
+                    return new UserEntity(jsonObject.getString("username"), jsonObject.getString("password"), jsonObject.getString("roleId"), MessageConstant.USER_LOGIN_STATUS_SUCCESS, jsonObject.getString("id"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                return new UserEntity(null, null, "-1", MessageConstant.USER_LOGIN_JSON_FORMAT_ERROR);
+                return new UserEntity(null, null, "-1", MessageConstant.USER_LOGIN_JSON_FORMAT_ERROR,"-1");
             }
         }
-        return new UserEntity(null, null, "-1", MessageConstant.USER_LOGIN_STATUS_FAIL);
+        return new UserEntity(null, null, "-1", MessageConstant.USER_LOGIN_STATUS_FAIL,"-1");
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
     }
 
     @Override

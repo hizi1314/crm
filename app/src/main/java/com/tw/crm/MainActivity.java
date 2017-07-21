@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements LoginStatusListen
         }
         //临时写法
         Toast.makeText(this, "正在登录请稍后...", Toast.LENGTH_LONG).show();
-        new LoginService(this).execute(new UserEntity(text_login_username.getText().toString(), text_login_password.getText().toString(), "-1", -1));
+        new LoginService(this).execute(new UserEntity(text_login_username.getText().toString(), text_login_password.getText().toString(), "-1", -1,"-1"));
     }
 
 
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements LoginStatusListen
         intent.setClass(this, MenuActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("roleId", userEntity.getRole_id());
+        bundle.putString("userid",userEntity.getUserid());
         intent.putExtras(bundle);
         startActivity(intent);
     }

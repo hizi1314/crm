@@ -4,13 +4,24 @@
 
 
     <string name="menu_product_storage">产品入库</string>
-    <string name="menu_agent_management">代理商管理</string>
     <string name="menu_packing">产品装箱</string>
-    <string name="menu_send_agent">发货省代理</string>
-    <string name="menu_receiptc_boxs">省代理确认收货</string>
-    <string name="menu_send_distributor">发货经销商</string>
-    <string name="menu_receiptc_products">经销商确认收货</string>
-    <string name="menu_construction">施工单</string>
+    <string name="menu_send_agent">发箱</string>
+    <string name="menu_receiptc_boxs">收箱</string>
+    <string name="menu_send_distributor">发货</string>
+    <string name="menu_receiptc_products">收货</string>
+    <string name="menu_construction">施工</string>
+    <string name="menu_security">防伪</string>
+    <string name="menu_track">跟踪</string>
+    <string name="menu_agent_management">代理商管理</string>
+
+    <string name="product_scan_start">扫描</string>
+    <string name="product_scan_stop">停止扫描</string>
+
+
+
+
+
+
 
 
     <string name="login_username">用户名:</string>

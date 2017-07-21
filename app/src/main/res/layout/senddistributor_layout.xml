@@ -1,51 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- 产品装箱布局 -->
+<!-- 发货经销商  interactive/sendagent	//省代理 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TID:"
+                android:text="产品条码:"
                 android:textStyle="bold" />
             <!--android:hint="@string/login_password"-->
             <EditText
-                android:id="@+id/packing_ifid"
+                android:id="@+id/senddistributor_rfid"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:editable="false"
                 android:inputType="textMultiLine" />
 
-            <EditText
-                android:id="@+id/packing_sboxids"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="箱子中的二维条码" />
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="经销商："
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/senddistributor_useridj"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp" />
+            </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
                 <Button
-                    android:id="@+id/packing_button_submit"
+                    android:id="@+id/senddistributor_button_submit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="装箱" />
+                    android:text="提交" />
+
                 <Button
-                    android:id="@+id/packing_button_back"
+                    android:id="@+id/senddistributor_button_back"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -53,6 +71,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.tw.crm.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ public class ProductStorageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         //getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 
         View rootView = inflater.inflate(R.layout.product_storage_layout,container,false);
